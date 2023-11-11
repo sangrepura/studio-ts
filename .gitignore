@@ -14,10 +14,7 @@
 
 # production
 /build
-/src/fonts
-/src/images
-/src/app/blog
-/src/app/work
+
 
 # misc
 .DS_Store
