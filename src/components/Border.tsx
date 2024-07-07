@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 
-type BorderProps<T extends React.ElementType> = {
+interface BorderProps<T extends React.ElementType> {
   as?: T
   className?: string
   position?: 'top' | 'left'
@@ -15,7 +15,7 @@ export function Border<T extends React.ElementType = 'div'>({
   ...props
 }: Omit<React.ComponentPropsWithoutRef<T>, keyof BorderProps<T>> &
   BorderProps<T>) {
-  let Component = as ?? 'div'
+  const Component = as ?? 'div'
 
   return (
     <Component
@@ -23,8 +23,8 @@ export function Border<T extends React.ElementType = 'div'>({
         className,
         'relative before:absolute after:absolute',
         invert
-          ? 'before:bg-white after:bg-white/10'
-          : 'before:bg-neutral-950 after:bg-neutral-950/10',
+          ? 'before:bg-slate-50 after:bg-slate-50/10'
+          : 'before:bg-slate-950 after:bg-slate-950/10',
         position === 'top' &&
           'before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px',
         position === 'left' &&

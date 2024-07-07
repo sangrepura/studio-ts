@@ -1,6 +1,6 @@
-import { useId } from 'react'
-import Image, { type ImageProps } from 'next/image'
 import clsx from 'clsx'
+import Image, { type ImageProps } from 'next/image'
+import { useId } from 'react'
 
 const shapes = [
   {
@@ -27,8 +27,8 @@ export function StylizedImage({
   className,
   ...props
 }: ImagePropsWithOptionalAlt & { shape?: 0 | 1 | 2 }) {
-  let id = useId()
-  let { width, height, path } = shapes[shape]
+  const id = useId()
+  const { width, height, path } = shapes[shape]
 
   return (
     <div
@@ -43,7 +43,7 @@ export function StylizedImage({
             <foreignObject width={width} height={height}>
               <Image
                 alt=""
-                className="w-full bg-neutral-100 object-cover"
+                className="w-full bg-slate-100 object-cover"
                 style={{ aspectRatio: `${width} / ${height}` }}
                 {...props}
               />
@@ -52,7 +52,7 @@ export function StylizedImage({
           <use
             href={`#${id}-shape`}
             strokeWidth="2"
-            className="stroke-neutral-950/10"
+            className="stroke-slate-950/10"
           />
         </g>
         <defs>
