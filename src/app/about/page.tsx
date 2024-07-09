@@ -196,10 +196,10 @@ export default async function About() {
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
           <p>
-            Coastal Sites was started by three friends who noticed that
-            developer studios were charging clients double what an in-house team
-            would cost. Since the beginning, we have been committed to doing
-            things differently by charging triple instead.
+            Coastal Sites was started by two friends who noticed that developer
+            studios were charging clients double what an in-house team would
+            cost. Since the beginning, we have been committed to doing things
+            differently by charging triple instead.
           </p>
           <p>
             At Coastal Sites, we’re more than just colleagues — we’re a family.
@@ -211,9 +211,9 @@ export default async function About() {
       </PageIntro>
       <Container className="mt-16">
         <StatList>
-          <StatListItem value="4" label="Underpaid employees" />
-          <StatListItem value="52" label="Placated clients" />
-          <StatListItem value="$823T" label="Invoices billed" />
+          <StatListItem value="3" label="Underpaid employees" />
+          <StatListItem value="150" label="Placated clients" />
+          <StatListItem value="$900T" label="Invoices billed" />
         </StatList>
       </Container>
 
