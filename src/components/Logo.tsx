@@ -56,12 +56,7 @@ export function Logo({
           className="color_tortuga__shellcolors__Vector_5"
         />
       </g>
-      <g
-        className={clsx(
-          invert ? 'fill-sky-950 dark:fill-sky-100' : 'fill-sky-950',
-          className,
-        )}
-      >
+      <g className={clsx(invert ? 'fill-sky-50' : 'fill-sky-950', className)}>
         <path
           d="M25.6926 81.4393C23.237 74.7633 22.6189 70.5 22.6189 66C18.9429 68.1928 8.23413 75.7336 3.84109 84.2153C-1.68863 94.8936 1.20288 100.36 6.28878 102.622C11.3767 104.883 19.5559 103.228 27.3067 98.5529C29.8352 97.0286 32.0927 96.1024 34.6189 94C31.5874 91.4001 27.7563 86.9342 25.6926 81.4393Z"
           className="color_tortuga__body_parts__rightleg"

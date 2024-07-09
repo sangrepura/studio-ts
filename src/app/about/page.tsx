@@ -1,6 +1,6 @@
 import { type Metadata } from 'next'
-import Image from 'next/image'
 
+//import Image from 'next/image'
 import { Border } from '@/components/Border'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
@@ -213,7 +213,7 @@ export default async function About() {
         <StatList>
           <StatListItem value="3" label="Underpaid employees" />
           <StatListItem value="150" label="Placated clients" />
-          <StatListItem value="$900T" label="Invoices billed" />
+          <StatListItem value="$480K" label="Invoices billed" />
         </StatList>
       </Container>
 
