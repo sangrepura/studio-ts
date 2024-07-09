@@ -181,7 +181,7 @@ export default async function Home() {
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-5xl font-medium tracking-tight text-sky-950 [text-wrap:balance] sm:text-7xl">
             Reel in More Customers: Your Gulf Shores Digital Marketing & Web
-            Development Experts pen_spark
+            Development Experts
           </h1>
           <p className="mt-6 text-xl text-sky-600">.</p>
         </FadeIn>
