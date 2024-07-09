@@ -183,7 +183,12 @@ export default async function Home() {
             Reel in More Customers: Your Gulf Shores Digital Marketing & Web
             Development Experts
           </h1>
-          <p className="mt-6 text-xl text-sky-600">.</p>
+          <p className="mt-6 text-xl text-sky-600">
+            Embark on a chartered voyage where design meets technology. Whether
+            it`&apos;`s cloud hosting, digital marketing, web design, or
+            branding, we bait the hook with innovation to help you reel in big
+            results.
+          </p>
         </FadeIn>
       </Container>
 
