@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: {
     template: '%s - Coastal Sites',
     default:
-      'Award winning developer studio and digital mrketing agency based in Gulf Shores',
+      'Award winning developer studio and digital marketing agency based in Gulf Shores',
   },
 }
 
