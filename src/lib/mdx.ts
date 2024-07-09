@@ -1,15 +1,15 @@
-import { type ImageProps } from 'next/image'
 import glob from 'fast-glob'
+import { type ImageProps } from 'next/image'
 
 async function loadEntries<T extends { date: string }>(
   directory: string,
   metaName: string,
-): Promise<Array<MDXEntry<T>>> {
+): Promise<MDXEntry<T>[]> {
   return (
     await Promise.all(
       (await glob('**/page.mdx', { cwd: `src/app/${directory}` })).map(
         async (filename) => {
-          let metadata = (await import(`../app/${directory}/${filename}`))[
+          const metadata = (await import(`../app/${directory}/${filename}`))[
             metaName
           ] as T
           return {
@@ -43,7 +43,7 @@ export interface CaseStudy {
   client: string
   title: string
   description: string
-  summary: Array<string>
+  summary: string[]
   logo: ImageProps['src']
   image: ImagePropsWithOptionalAlt
   service: string

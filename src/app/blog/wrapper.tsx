@@ -23,16 +23,16 @@ export default async function BlogArticleWrapper({
       <Container as="article" className="mt-24 sm:mt-32 lg:mt-40">
         <FadeIn>
           <header className="mx-auto flex max-w-5xl flex-col text-center">
-            <h1 className="mt-6 font-display text-5xl font-medium tracking-tight text-slate-950 [text-wrap:balance] sm:text-6xl">
+            <h1 className="mt-6 font-display text-5xl font-medium tracking-tight text-sky-950 [text-wrap:balance] sm:text-6xl">
               {article.title}
             </h1>
             <time
               dateTime={article.date}
-              className="order-first text-sm text-slate-950"
+              className="order-first text-sm text-sky-950"
             >
               {formatDate(article.date)}
             </time>
-            <p className="mt-6 text-sm font-semibold text-slate-950">
+            <p className="mt-6 text-sm font-semibold text-sky-950">
               by {article.author.name}, {article.author.role}
             </p>
           </header>

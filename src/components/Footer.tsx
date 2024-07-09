@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
-import { Logo } from '@/components/Logo'
+import { LogoBrandMark } from '@/components/LogoBrandMark'
 import { socialMediaProfiles } from '@/components/SocialMedia'
 
 const navigation = [
@@ -43,15 +43,15 @@ function Navigation() {
       <ul role="list" className="grid grid-cols-2 gap-8 sm:grid-cols-3">
         {navigation.map((section, sectionIndex) => (
           <li key={sectionIndex}>
-            <div className="font-display text-sm font-semibold tracking-wider text-slate-950">
+            <div className="font-display text-sm font-semibold tracking-wider text-sky-950">
               {section.title}
             </div>
-            <ul role="list" className="mt-4 text-sm text-slate-700">
+            <ul role="list" className="mt-4 text-sm text-sky-700">
               {section.links.map((link, linkIndex) => (
                 <li key={linkIndex} className="mt-4">
                   <Link
                     href={link.href}
-                    className="transition hover:text-slate-950"
+                    className="transition hover:text-sky-950"
                   >
                     {link.title}
                   </Link>
@@ -81,10 +81,10 @@ function ArrowIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 function NewsletterForm() {
   return (
     <form className="max-w-sm">
-      <h2 className="font-display text-sm font-semibold tracking-wider text-slate-950">
+      <h2 className="font-display text-sm font-semibold tracking-wider text-sky-950">
         Sign up for our newsletter
       </h2>
-      <p className="mt-4 text-sm text-slate-700">
+      <p className="mt-4 text-sm text-sky-700">
         Subscribe to get the latest design news, articles, resources and
         inspiration.
       </p>
@@ -94,13 +94,13 @@ function NewsletterForm() {
           placeholder="Email address"
           autoComplete="email"
           aria-label="Email address"
-          className="block w-full rounded-2xl border border-slate-300 bg-transparent py-4 pl-6 pr-20 text-base/6 text-slate-950 ring-4 ring-transparent transition placeholder:text-slate-500 focus:border-slate-950 focus:outline-none focus:ring-slate-950/5"
+          className="block w-full rounded-2xl border border-sky-300 bg-transparent py-4 pl-6 pr-20 text-base/6 text-sky-950 ring-4 ring-transparent transition placeholder:text-sky-500 focus:border-sky-950 focus:outline-none focus:ring-sky-950/5"
         />
         <div className="absolute inset-y-1 right-1 flex justify-end">
           <button
             type="submit"
             aria-label="Submit"
-            className="flex aspect-square h-full items-center justify-center rounded-xl bg-slate-950 text-white transition hover:bg-slate-800"
+            className="flex aspect-square h-full items-center justify-center rounded-xl bg-sky-950 text-white transition hover:bg-sky-800"
           >
             <ArrowIcon className="w-4" />
           </button>
@@ -120,12 +120,12 @@ export function Footer() {
             <NewsletterForm />
           </div>
         </div>
-        <div className="mb-20 mt-24 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-slate-950/10 pt-12">
+        <div className="mb-20 mt-24 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-sky-950/10 pt-12">
           <Link href="/" aria-label="Home">
-            <Logo className="h-8" fillOnHover />
+            <LogoBrandMark className="h-16" />
           </Link>
-          <p className="text-sm text-slate-700">
-            © Studio Agency Inc. {new Date().getFullYear()}
+          <p className="text-sm text-sky-700">
+            © Coastal Sites Agency Inc. {new Date().getFullYear()}
           </p>
         </div>
       </FadeIn>

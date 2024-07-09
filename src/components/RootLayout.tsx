@@ -4,22 +4,24 @@ import clsx from 'clsx'
 import { motion, MotionConfig, useReducedMotion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import {
+import React, {
   createContext,
-  useContext,
+  //useContext,
   useEffect,
   useId,
   useRef,
   useState,
 } from 'react'
 
+import { GridPattern } from '@/components/AnimatedGrid'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
-import { GridPattern } from '@/components/GridPattern'
-import { Logo, Logomark } from '@/components/Logo'
+import { Logo } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { SocialMedia } from '@/components/SocialMedia'
+
+import { LogoBrandMark } from './LogoBrandMark'
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
@@ -58,7 +60,7 @@ function Header({
   toggleRef: React.RefObject<HTMLButtonElement>
   invert?: boolean
 }) {
-  const { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
+  //const { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
 
   return (
     <Container>
@@ -66,18 +68,18 @@ function Header({
         <Link
           href="/"
           aria-label="Home"
-          onMouseEnter={() => setLogoHovered(true)}
-          onMouseLeave={() => setLogoHovered(false)}
+          //onMouseEnter={() => setLogoHovered(true)}
+          //onMouseLeave={() => setLogoHovered(false)}
         >
-          <Logomark
-            className="h-8 sm:hidden"
-            invert={invert}
-            filled={logoHovered}
-          />
           <Logo
-            className="hidden h-8 sm:block"
+            className="h-28  sm:hidden"
             invert={invert}
-            filled={logoHovered}
+            //filled={logoHovered}
+          />
+          <LogoBrandMark
+            className="hidden sm:block sm:h-24 md:h-28 xl:h-32"
+            invert={invert}
+            //filled={logoHovered}
           />
         </Link>
         <div className="flex items-center gap-x-8">
@@ -92,7 +94,7 @@ function Header({
             aria-controls={panelId}
             className={clsx(
               'group -m-2.5 rounded-full p-2.5 transition',
-              invert ? 'hover:bg-slate-50/10' : 'hover:bg-slate-950/10',
+              invert ? 'hover:bg-sky-50/10' : 'hover:bg-sky-950/10',
             )}
             aria-label="Toggle navigation"
           >
@@ -100,8 +102,8 @@ function Header({
               className={clsx(
                 'size-6',
                 invert
-                  ? 'fill-slate-50 group-hover:fill-slate-200'
-                  : 'fill-slate-950 group-hover:fill-slate-700',
+                  ? 'fill-sky-50 group-hover:fill-sky-200'
+                  : 'fill-sky-950 group-hover:fill-sky-700',
               )}
             />
           </button>
@@ -113,7 +115,7 @@ function Header({
 
 function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="even:mt-px sm:bg-slate-950">
+    <div className="even:mt-px sm:bg-sky-950">
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
       </Container>
@@ -131,10 +133,10 @@ function NavigationItem({
   return (
     <Link
       href={href}
-      className="group relative isolate -mx-6 bg-slate-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-slate-800 sm:even:pl-16"
+      className="group relative isolate -mx-6 bg-sky-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-sky-800 sm:even:pl-16"
     >
       {children}
-      <span className="absolute inset-y-0 -z-10 w-screen bg-slate-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
+      <span className="absolute inset-y-0 -z-10 w-screen bg-sky-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
     </Link>
   )
 }
@@ -185,7 +187,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
         <div
           className="absolute inset-x-0 top-2 z-40 pt-14"
           aria-hidden={expanded ? 'true' : undefined}
-          // @ts-ignore (https://github.com/facebook/react/issues/17157)
+          // @ts-expect-error (https://github.com/facebook/react/issues/17157)
           inert={expanded ? '' : undefined}
         >
           <Header
@@ -206,13 +208,13 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           layout
           id={panelId}
           style={{ height: expanded ? 'auto' : '0.5rem' }}
-          className="relative z-50 overflow-hidden bg-slate-950 pt-2"
+          className="relative z-50 overflow-hidden bg-sky-950 pt-2"
           aria-hidden={expanded ? undefined : 'true'}
-          // @ts-ignore (https://github.com/facebook/react/issues/17157)
+          // @ts-expect-error (https://github.com/facebook/react/issues/17157)
           inert={expanded ? undefined : ''}
         >
-          <motion.div layout className="bg-slate-800">
-            <div ref={navRef} className="bg-slate-950 pb-16 pt-14">
+          <motion.div layout className="bg-sky-800">
+            <div ref={navRef} className="bg-sky-950 pb-16 pt-14">
               <Header
                 invert
                 panelId={panelId}
@@ -228,12 +230,12 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
               />
             </div>
             <Navigation />
-            <div className="relative bg-slate-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-slate-800">
+            <div className="relative bg-sky-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-sky-800">
               <Container>
                 <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">
                   <div>
-                    <h2 className="font-display text-base font-semibold text-white">
-                      Our offices
+                    <h2 className="font-display text-base font-semibold text-sky-50">
+                      Our Office
                     </h2>
                     <Offices
                       invert
@@ -256,20 +258,21 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
       <motion.div
         layout
         style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-        className="relative flex flex-auto overflow-hidden bg-slate-50 pt-14"
+        className="relative flex flex-auto overflow-hidden bg-sky-50 pt-14"
       >
         <motion.div
           layout
           className="relative isolate flex w-full flex-col pt-9"
         >
           <GridPattern
-            className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full fill-slate-50 stroke-slate-950/5 [mask-image:linear-gradient(to_bottom_left,white_40%,transparent_50%)]"
-            yOffset={-96}
-            interactive
+            maxOpacity={0.4}
+            width={90}
+            height={180}
+            numSquares={150}
+            duration={0.8}
+            className="inset-0 h-3/4 w-full skew-y-12 fill-sky-800/30 stroke-sky-400/10 [mask-image:linear-gradient(to_bottom,white_30%,transparent_60%)]"
           />
-
           <main className="w-full flex-auto">{children}</main>
-
           <Footer />
         </motion.div>
       </motion.div>

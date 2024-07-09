@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import React from 'react'
 
 function Office({
   name,
@@ -13,10 +14,10 @@ function Office({
     <address
       className={clsx(
         'text-sm not-italic',
-        invert ? 'text-slate-300' : 'text-slate-600',
+        invert ? 'text-sky-200' : 'text-sky-600',
       )}
     >
-      <strong className={invert ? 'text-white' : 'text-slate-950'}>
+      <strong className={invert ? 'text-sky-50' : 'text-sky-950'}>
         {name}
       </strong>
       <br />
@@ -32,17 +33,10 @@ export function Offices({
   return (
     <ul role="list" {...props}>
       <li>
-        <Office name="Copenhagen" invert={invert}>
-          1 Carlsberg Gate
+        <Office name="Alabama, USA" invert={invert}>
+          3817 Gulf Shore Pkwy, Suite 4
           <br />
-          1260, København, Denmark
-        </Office>
-      </li>
-      <li>
-        <Office name="Billund" invert={invert}>
-          24 Lego Allé
-          <br />
-          7190, Billund, Denmark
+          Gulf Shores, AL 36542
         </Office>
       </li>
     </ul>

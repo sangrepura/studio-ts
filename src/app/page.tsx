@@ -9,20 +9,19 @@ import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { StylizedImage } from '@/components/StylizedImage'
 import { Testimonial } from '@/components/Testimonial'
-import logoBrightPath from '@/images/clients/bright-path/logo-light.svg'
-import logoFamilyFund from '@/images/clients/family-fund/logo-light.svg'
-import logoGreenLife from '@/images/clients/green-life/logo-light.svg'
-import logoHomeWork from '@/images/clients/home-work/logo-light.svg'
-import logoMailSmirk from '@/images/clients/mail-smirk/logo-light.svg'
-import logoNorthAdventures from '@/images/clients/north-adventures/logo-light.svg'
+import logoBrightPath from '@/images/clients/bright-path/logo-dark.svg'
+import logoFamilyFund from '@/images/clients/family-fund/logo-dark.svg'
+import logoGreenLife from '@/images/clients/green-life/logo-dark.svg'
+import logoHomeWork from '@/images/clients/home-work/logo-dark.svg'
+import logoMailSmirk from '@/images/clients/mail-smirk/logo-dark.svg'
+import logoNorthAdventures from '@/images/clients/north-adventures/logo-dark.svg'
 import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
-import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
-import logoUnseal from '@/images/clients/unseal/logo-light.svg'
-import imageLaptop from '@/images/laptop.jpg'
+import logoUnseal from '@/images/clients/unseal/logo-dark.svg'
+import imageWireframe from '@/images/the_importance_of_wireframing-1184x694.jpg'
 import { type CaseStudy, loadCaseStudies, type MDXEntry } from '@/lib/mdx'
 
 const clients = [
-  ['Phobia', logoPhobiaLight],
+  ['Phobia', logoPhobiaDark],
   ['Family Fund', logoFamilyFund],
   ['Unseal', logoUnseal],
   ['Mail Smirk', logoMailSmirk],
@@ -34,13 +33,13 @@ const clients = [
 
 function Clients() {
   return (
-    <div className="mt-24 rounded-4xl bg-slate-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
+    <div className="mt-24 rounded-4xl bg-sky-950/20 py-20 sm:mt-32 sm:py-32 lg:mt-56">
       <Container>
         <FadeIn className="flex items-center gap-x-8">
-          <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
+          <h2 className="text-center font-display text-lg font-semibold tracking-wider text-sky-950 sm:text-left">
             We’ve worked with hundreds of amazing people
           </h2>
-          <div className="h-px flex-auto bg-slate-800" />
+          <div className="h-px flex-auto bg-sky-800" />
         </FadeIn>
         <FadeInStagger faster>
           <ul
@@ -78,7 +77,7 @@ function CaseStudies({ caseStudies }: { caseStudies: MDXEntry<CaseStudy>[] }) {
         <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {caseStudies.map((caseStudy) => (
             <FadeIn key={caseStudy.href} className="flex">
-              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-slate-950/5 transition hover:bg-slate-50 sm:p-8">
+              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-sky-950/5 transition hover:bg-sky-50 sm:p-8">
                 <h3>
                   <Link href={caseStudy.href}>
                     <span className="absolute inset-0 rounded-3xl" />
@@ -90,22 +89,22 @@ function CaseStudies({ caseStudies }: { caseStudies: MDXEntry<CaseStudy>[] }) {
                     />
                   </Link>
                 </h3>
-                <p className="mt-6 flex gap-x-2 text-sm text-slate-950">
+                <p className="mt-6 flex gap-x-2 text-sm text-sky-950">
                   <time
                     dateTime={caseStudy.date.split('-')[0]}
                     className="font-semibold"
                   >
                     {caseStudy.date.split('-')[0]}
                   </time>
-                  <span className="text-slate-300" aria-hidden="true">
+                  <span className="text-sky-300" aria-hidden="true">
                     /
                   </span>
                   <span>Case study</span>
                 </p>
-                <p className="mt-6 font-display text-2xl font-semibold text-slate-950">
+                <p className="mt-6 font-display text-2xl font-semibold text-sky-950">
                   {caseStudy.title}
                 </p>
-                <p className="mt-4 text-base text-slate-600">
+                <p className="mt-4 text-base text-sky-600">
                   {caseStudy.description}
                 </p>
               </article>
@@ -132,11 +131,11 @@ function Services() {
       </SectionIntro>
       <Container className="mt-16">
         <div className="lg:flex lg:items-center lg:justify-end">
-          <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
-            <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
+          <div className="flex justify-center sm:w-full lg:w-1/2 lg:justify-end lg:pr-2 xl:pr-12">
+            <FadeIn className="w-[33.75rem] flex-none md:w-[41rem] lg:w-[36rem] xl:w-[41rem] 2xl:w-[48rem]">
               <StylizedImage
-                src={imageLaptop}
-                sizes="(min-width: 1024px) 41rem, 31rem"
+                src={imageWireframe}
+                sizes="(min-width: 1024[px) 41rem, 31rem"
                 className="justify-center lg:justify-end"
               />
             </FadeIn>
@@ -157,9 +156,9 @@ function Services() {
               used for the past six years.
             </ListItem>
             <ListItem title="Custom content management">
-              At Studio we understand the importance of having a robust and
-              customised CMS. That’s why we run all of our client projects out
-              of a single, enormous Joomla instance.
+              At Coastal Sites we understand the importance of having a robust
+              and customised CMS. That’s why we run all of our client projects
+              out of a single, enormous Joomla instance.
             </ListItem>
           </List>
         </div>
@@ -180,10 +179,11 @@ export default async function Home() {
     <>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight text-slate-950 [text-wrap:balance] sm:text-7xl">
-            Award-winning development studio based in Denmark.
+          <h1 className="font-display text-5xl font-medium tracking-tight text-sky-950 [text-wrap:balance] sm:text-7xl">
+            Award winning developer studio and digital mrketing agency based in
+            Gulf Shores
           </h1>
-          <p className="mt-6 text-xl text-slate-600">
+          <p className="mt-6 text-xl text-sky-600">
             We are a development studio working at the intersection of design
             and technology. It’s a really busy intersection though — a lot of
             our staff have been involved in hit and runs.
@@ -199,9 +199,9 @@ export default async function Home() {
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: 'Phobia', logo: logoPhobiaDark }}
       >
-        The team at Studio went above and beyond with our onboarding, even
-        finding a way to access the user’s microphone without triggering one of
-        those annoying permission dialogs.
+        The team at Coastal Sites went above and beyond with our onboarding,
+        even finding a way to access the user’s microphone without triggering
+        one of those annoying permission dialogs.
       </Testimonial>
 
       <Services />

@@ -26,7 +26,7 @@ import { loadArticles } from '@/lib/mdx'
 
 function Culture() {
   return (
-    <div className="mt-24 rounded-4xl bg-slate-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
+    <div className="mt-24 rounded-4xl bg-sky-950 py-24 sm:mt-32 lg:mt-40 lg:py-32">
       <SectionIntro
         eyebrow="Our culture"
         title="Balance your passion with your passion for life."
@@ -138,7 +138,7 @@ function Team() {
             <Border as={FadeIn} />
             <div className="grid grid-cols-1 gap-6 pt-12 sm:pt-16 lg:grid-cols-4 xl:gap-8">
               <FadeIn>
-                <h2 className="font-display text-2xl font-semibold text-slate-950">
+                <h2 className="font-display text-2xl font-semibold text-sky-950">
                   {group.title}
                 </h2>
               </FadeIn>
@@ -147,10 +147,10 @@ function Team() {
                   role="list"
                   className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8"
                 >
-                  {group.people.map((person) => (
+                  {/*                   {group.people.map((person) => (
                     <li key={person.name}>
                       <FadeIn>
-                        <div className="group relative overflow-hidden rounded-3xl bg-slate-100">
+                        <div className="group relative overflow-hidden rounded-3xl bg-sky-100">
                           <Image
                             alt=""
                             {...person.image}
@@ -167,7 +167,7 @@ function Team() {
                         </div>
                       </FadeIn>
                     </li>
-                  ))}
+                  ))} */}
                 </ul>
               </div>
             </div>
@@ -196,16 +196,16 @@ export default async function About() {
         </p>
         <div className="mt-10 max-w-2xl space-y-6 text-base">
           <p>
-            Studio was started by three friends who noticed that developer
-            studios were charging clients double what an in-house team would
-            cost. Since the beginning, we have been committed to doing things
-            differently by charging triple instead.
+            Coastal Sites was started by three friends who noticed that
+            developer studios were charging clients double what an in-house team
+            would cost. Since the beginning, we have been committed to doing
+            things differently by charging triple instead.
           </p>
           <p>
-            At Studio, we’re more than just colleagues — we’re a family. This
-            means we pay very little and expect people to work late. We want our
-            employees to bring their whole selves to work. In return, we just
-            ask that they keep themselves there until at least 6:30pm.
+            At Coastal Sites, we’re more than just colleagues — we’re a family.
+            This means we pay very little and expect people to work late. We
+            want our employees to bring their whole selves to work. In return,
+            we just ask that they keep themselves there until at least 6:30pm.
           </p>
         </div>
       </PageIntro>
@@ -224,7 +224,7 @@ export default async function About() {
       <PageLinks
         className="mt-24 sm:mt-32 lg:mt-40"
         title="From the blog"
-        intro="Our team of experienced designers and developers has just one thing on their mind; working on your ideas to draw a smile on the face of your users worldwide. From conducting slate Sprints to UX Design."
+        intro="Our team of experienced designers and developers has just one thing on their mind; working on your ideas to draw a smile on the face of your users worldwide. From conducting sky Sprints to UX Design."
         pages={blogArticles}
       />
 
