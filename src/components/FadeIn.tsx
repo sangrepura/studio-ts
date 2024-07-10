@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useReducedMotion } from 'framer-motion'
-import { createContext, useContext } from 'react'
+import React, { createContext, useContext } from 'react'
 
 const FadeInStaggerContext = createContext(false)
 

@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import Link from 'next/link'
+import React from 'react'
 
 function FacebookIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (

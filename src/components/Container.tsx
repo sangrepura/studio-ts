@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import React from 'react'
 
 interface ContainerProps<T extends React.ElementType> {
   as?: T

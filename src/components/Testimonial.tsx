@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import Image, { type ImageProps } from 'next/image'
+import React from 'react'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'

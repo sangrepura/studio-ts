@@ -9,9 +9,10 @@ async function loadEntries<T extends { date: string }>(
     await Promise.all(
       (await glob('**/page.mdx', { cwd: `src/app/${directory}` })).map(
         async (filename) => {
-          const metadata = (await import(`../app/${directory}/${filename}`))[
-            metaName
-          ] as T
+          type ImportMeta = Record<string, T>
+          const metadata = (
+            (await import(`../app/${directory}/${filename}`)) as ImportMeta
+          )[metaName]
           return {
             ...metadata,
             metadata,
