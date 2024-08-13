@@ -30,7 +30,7 @@ const RootLayoutContext = createContext<{
 
 function XIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+    <svg id="x-icon" viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path d="m5.636 4.223 14.142 14.142-1.414 1.414L4.222 5.637z" />
       <path d="M4.222 18.363 18.364 4.22l1.414 1.414L5.636 19.777z" />
     </svg>
@@ -39,7 +39,7 @@ function XIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 function MenuIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+    <svg id="burger-icon" viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path d="M2 6h20v2H2zM2 16h20v2H2z" />
     </svg>
   )
@@ -72,14 +72,13 @@ function Header({
           //onMouseLeave={() => setLogoHovered(false)}
         >
           <Logo
-            className="h-28  sm:hidden"
+            className="h-28 sm:hidden"
             invert={invert}
             //filled={logoHovered}
           />
           <LogoBrandMark
             className="hidden sm:block sm:h-24 md:h-28 xl:h-32"
             invert={invert}
-            //filled={logoHovered}
           />
         </Link>
         <div className="flex items-center gap-x-8">
@@ -133,17 +132,22 @@ function NavigationItem({
   return (
     <Link
       href={href}
-      className="group relative isolate -mx-6 bg-sky-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-sky-800 sm:even:pl-16"
+      className="group relative isolate -mx-6 bg-sky-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0
+        sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-sky-800
+        sm:even:pl-16"
     >
       {children}
-      <span className="absolute inset-y-0 -z-10 w-screen bg-sky-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
+      <span
+        className="absolute inset-y-0 -z-10 w-screen bg-sky-900 opacity-0 transition
+          group-odd:right-0 group-even:left-0 group-hover:opacity-100"
+      />
     </Link>
   )
 }
 
 function Navigation() {
   return (
-    <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
+    <nav className="font-display mt-px text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
         <NavigationItem href="/work">Our Work</NavigationItem>
         <NavigationItem href="/about">About Us</NavigationItem>
@@ -185,7 +189,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
     <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
       <header>
         <div
-          className="absolute inset-x-0 top-2 z-40 pt-14"
+          className="absolute inset-x-0 top-2 z-30 pt-14"
           aria-hidden={expanded ? 'true' : undefined}
           // @ts-expect-error (https://github.com/facebook/react/issues/17157)
           inert={expanded ? '' : undefined}
@@ -197,18 +201,17 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
             expanded={expanded}
             onToggle={() => {
               setExpanded((expanded) => !expanded)
-              window.setTimeout(
-                () => closeRef.current?.focus({ preventScroll: true }),
+              window.setTimeout(() =>
+                closeRef.current?.focus({ preventScroll: true }),
               )
             }}
           />
         </div>
-
         <motion.div
           layout
           id={panelId}
           style={{ height: expanded ? 'auto' : '0.5rem' }}
-          className="relative z-50 overflow-hidden bg-sky-950 pt-2"
+          className="relative z-40 overflow-hidden bg-sky-950 pt-2"
           aria-hidden={expanded ? undefined : 'true'}
           // @ts-expect-error (https://github.com/facebook/react/issues/17157)
           inert={expanded ? undefined : ''}
@@ -223,14 +226,17 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                 expanded={expanded}
                 onToggle={() => {
                   setExpanded((expanded) => !expanded)
-                  window.setTimeout(
-                    () => openRef.current?.focus({ preventScroll: true }),
+                  window.setTimeout(() =>
+                    openRef.current?.focus({ preventScroll: true }),
                   )
                 }}
               />
             </div>
             <Navigation />
-            <div className="relative bg-sky-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-sky-800">
+            <div
+              className="relative bg-sky-950 before:absolute before:inset-x-0 before:top-0 before:h-px
+                before:bg-sky-800"
+            >
               <Container>
                 <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">
                   <div>
@@ -258,19 +264,21 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
       <motion.div
         layout
         style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
-        className="relative flex flex-auto overflow-hidden bg-sky-50 pt-14"
+        className="relative flex flex-auto overflow-hidden bg-white  pt-14"
       >
         <motion.div
           layout
           className="relative isolate flex w-full flex-col pt-9"
         >
+          {' '}
           <GridPattern
             maxOpacity={0.4}
             width={90}
             height={180}
             numSquares={150}
             duration={0.8}
-            className="inset-0 h-3/4 w-full skew-y-12 fill-sky-800/30 stroke-sky-400/10 [mask-image:linear-gradient(to_bottom,white_30%,transparent_60%)]"
+            className="inset-0 h-3/4 w-full skew-y-12 fill-sky-800/30 stroke-sky-400/10
+              [mask-image:linear-gradient(to_bottom,white_30%,transparent_60%)]"
           />
           <main className="w-full flex-auto">{children}</main>
           <Footer />

@@ -1,4 +1,5 @@
 import rehypeShiki from '@leafac/rehype-shiki'
+import withBundleAnalyzer from '@next/bundle-analyzer'
 import nextMDX from '@next/mdx'
 import { Parser } from 'acorn'
 import jsx from 'acorn-jsx'
@@ -15,6 +16,10 @@ import { unifiedConditional } from 'unified-conditional'
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
 }
+
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 function remarkMDXLayout(source, metaName) {
   let parser = Parser.extend(jsx())
@@ -79,5 +84,5 @@ export default async function config() {
     },
   })
 
-  return withMDX(nextConfig)
+  return bundleAnalyzer(withMDX(nextConfig))
 }

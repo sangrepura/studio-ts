@@ -3,14 +3,14 @@ import React, { type SVGProps } from 'react'
 
 type Props = SVGProps<SVGSVGElement>
 
-export function Logo({
+export const Logo = ({
   className,
   invert = false,
   ...props
-}: React.ComponentPropsWithoutRef<'svg'> & {
+}: React.ComponentPropsWithRef<'svg'> & {
   invert?: boolean
   props?: Props
-}) {
+}) => {
   return (
     <svg
       viewBox="0 0 162 121"

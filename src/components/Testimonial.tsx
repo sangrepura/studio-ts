@@ -1,6 +1,5 @@
 import clsx from 'clsx'
-import Image, { type ImageProps } from 'next/image'
-import React from 'react'
+import React, { type ReactElement } from 'react'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
@@ -12,7 +11,7 @@ export function Testimonial({
   className,
 }: {
   children: React.ReactNode
-  client: { logo: ImageProps['src']; name: string }
+  client: { name: string; logo: ReactElement }
   className?: string
 }) {
   return (
@@ -23,19 +22,26 @@ export function Testimonial({
       )}
     >
       <GridPattern
-        className="absolute inset-0 -z-10 size-full fill-sky-100 stroke-sky-950/5 [mask-image:linear-gradient(to_bottom_left,white_50%,transparent_60%)]"
+        className="absolute inset-0 -z-10 size-full fill-sky-100 stroke-sky-950/5
+          [mask-image:linear-gradient(to_bottom_left,white_50%,transparent_60%)]"
         yOffset={-256}
       />
       <Container>
         <FadeIn>
           <figure className="mx-auto max-w-4xl">
-            <blockquote className="relative font-display text-3xl font-medium tracking-tight text-sky-950 sm:text-4xl">
+            <blockquote
+              className="font-display relative text-3xl font-medium tracking-tight text-sky-950
+                sm:text-4xl"
+            >
               <p className="before:content-['“'] after:content-['”'] sm:before:absolute sm:before:right-full">
                 {children}
               </p>
             </blockquote>
             <figcaption className="mt-10">
-              <Image src={client.logo} alt={client.name} unoptimized />
+              {client.logo}
+              <cite className="mt-2 block text-base text-neutral-600">
+                {client.name}
+              </cite>
             </figcaption>
           </figure>
         </FadeIn>

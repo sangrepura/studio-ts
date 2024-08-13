@@ -1,14 +1,104 @@
+/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Mona Sans';
-  font-weight: 200 900;
-  font-display: block;
-  font-style: normal;
-  font-stretch: 75% 125%;
-  src: url('../fonts/Mona-Sans.var.woff2') format('woff2');
-}
+@layer base {
+  :root {
+    --font-recoleta-100: 100; /* Thin */
+    --font-recoleta-200: 300; /* Map to Light as fallback */
+    --font-recoleta-300: 300; /* Light */
+    --font-recoleta-400: 400; /* Regular */
+    --font-recoleta-500: 500; /* Medium */
+    --font-recoleta-600: 600; /* SemiBold */
+    --font-recoleta-700: 700; /* Bold */
+    --font-recoleta-800: 900; /* Map to Black as fallback */
+    --font-recoleta-900: 900; /* Black */
+    /* --font-recoleta will be dynamically set in layout.tsx */
 
-@import './typography.css';
+    /* Map Tailwind classes to CSS variables */
+    .font-thin {
+      font-weight: var(--font-recoleta-100);
+    }
+    .font-extralight {
+      font-weight: var(--font-recoleta-200);
+    }
+    .font-light {
+      font-weight: var(--font-recoleta-300);
+    }
+    .font-normal {
+      font-weight: var(--font-recoleta-400);
+    }
+    .font-medium {
+      font-weight: var(--font-recoleta-500);
+    }
+    .font-semibold {
+      font-weight: var(--font-recoleta-600);
+    }
+    .font-bold {
+      font-weight: var(--font-recoleta-700);
+    }
+    .font-extrabold {
+      font-weight: var(--font-recoleta-800);
+    }
+    .font-black {
+      font-weight: var(--font-recoleta-900);
+    }
+    /* Base font size for mobile */
+    --base-font-size: 16px;
+
+    /* Font size variables for different breakpoints */
+    --font-size-xs: calc(var(--base-font-size) * 0.75);
+    --font-size-sm: calc(var(--base-font-size) * 1);
+    --font-size-base: calc(var(--base-font-size) * 1.125);
+    --font-size-lg: calc(var(--base-font-size) * 1.25);
+    --font-size-xl: calc(var(--base-font-size) * 1.5);
+    --font-size-2xl: calc(var(--base-font-size) * 1.875);
+    --font-size-3xl: calc(var(--base-font-size) * 2.25);
+    --font-size-4xl: calc(var(--base-font-size) * 3);
+    --font-size-5xl: calc(var(--base-font-size) * 3.75);
+    --font-size-6xl: calc(var(--base-font-size) * 4.5);
+    --font-size-7xl: calc(var(--base-font-size) * 5.25);
+    --font-size-8xl: calc(var(--base-font-size) * 6);
+    --font-size-9xl: calc(var(--base-font-size) * 7.5);
+
+    /* Line height variables for different breakpoints */
+    --line-height-xs: calc(var(--font-size-xs) * 1.5);
+    --line-height-sm: calc(var(--font-size-sm) * 1.5);
+    --line-height-base: calc(var(--font-size-base) * 1.5);
+    --line-height-lg: calc(var(--font-size-lg) * 1.5);
+    --line-height-xl: calc(var(--font-size-xl) * 1.5);
+    --line-height-2xl: calc(var(--font-size-2xl) * 1.5);
+    --line-height-3xl: calc(var(--font-size-3xl) * 1.5);
+    --line-height-4xl: calc(var(--font-size-4xl) * 1.5);
+    --line-height-5xl: calc(var(--font-size-5xl) * 1.5);
+    --line-height-6xl: calc(var(--font-size-6xl) * 1.5);
+    --line-height-7xl: calc(var(--font-size-7xl) * 1.5);
+    --line-height-8xl: calc(var(--font-size-8xl) * 1.5);
+    --line-height-9xl: calc(var(--font-size-9xl) * 1.5);
+
+    @media (min-width: 320px) {
+      :root {
+        --base-font-size: 18px;
+      }
+    }
+
+    @media (min-width: 480px) {
+      :root {
+        --base-font-size: 20px;
+      }
+    }
+
+    @media (min-width: 1440px) {
+      :root {
+        --base-font-size: 24px;
+      }
+    }
+
+    @media (min-width: 2560px) {
+      :root {
+        --base-font-size: 32px;
+      }
+    }
+  }
+}

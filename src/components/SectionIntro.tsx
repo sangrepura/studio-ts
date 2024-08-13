@@ -8,7 +8,6 @@ export function SectionIntro({
   title,
   eyebrow,
   children,
-  smaller = false,
   invert = false,
   ...props
 }: Omit<
@@ -18,18 +17,17 @@ export function SectionIntro({
   title: string
   eyebrow?: string
   children?: React.ReactNode
-  smaller?: boolean
   invert?: boolean
 }) {
   return (
     <Container {...props}>
-      <FadeIn className="max-w-2xl">
+      <FadeIn className="">
         <h2>
           {eyebrow && (
             <>
               <span
                 className={clsx(
-                  'mb-6 block font-display text-base font-semibold',
+                  'mb-6 block text-2xl font-semibold tracking-wide md:text-3xl lg:text-4xl xl:text-5xl',
                   invert ? 'text-white' : 'text-sky-950',
                 )}
               >
@@ -40,11 +38,8 @@ export function SectionIntro({
           )}
           <span
             className={clsx(
-              'block font-display tracking-tight [text-wrap:balance]',
-              smaller
-                ? 'text-2xl font-semibold'
-                : 'text-4xl font-medium sm:text-5xl',
-              invert ? 'text-white' : 'text-sky-950',
+              'mb-6 block text-balance text-xl font-semibold tracking-wide md:text-2xl lg:text-3xl xl:text-4xl ',
+              invert ? 'text-white' : 'text-',
             )}
           >
             {title}
@@ -53,8 +48,8 @@ export function SectionIntro({
         {children && (
           <div
             className={clsx(
-              'mt-6 text-xl',
-              invert ? 'text-sky-300' : 'text-sky-600',
+              'mt-6 text-balance text-lg text-xl font-normal leading-snug tracking-wide md:text-xl lg:text-2xl xl:text-3xl',
+              invert ? 'text-white' : 'text-sky-800',
             )}
           >
             {children}

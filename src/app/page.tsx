@@ -2,106 +2,60 @@ import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { SlideUp } from '@/components/Animations/SlideUp'
+import { TextTwister } from '@/components/Animations/TextTwister'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
-import { List, ListItem } from '@/components/List'
+import { Features } from '@/components/Features'
 import { SectionIntro } from '@/components/SectionIntro'
-import { StylizedImage } from '@/components/StylizedImage'
-import { Testimonial } from '@/components/Testimonial'
-import logoBrightPath from '@/images/clients/bright-path/logo-dark.svg'
-import logoFamilyFund from '@/images/clients/family-fund/logo-dark.svg'
-import logoGreenLife from '@/images/clients/green-life/logo-dark.svg'
-import logoHomeWork from '@/images/clients/home-work/logo-dark.svg'
-import logoMailSmirk from '@/images/clients/mail-smirk/logo-dark.svg'
-import logoNorthAdventures from '@/images/clients/north-adventures/logo-dark.svg'
-import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
-import logoUnseal from '@/images/clients/unseal/logo-dark.svg'
-import imageWireframe from '@/images/the_importance_of_wireframing-1184x694.jpg'
 import { type CaseStudy, loadCaseStudies, type MDXEntry } from '@/lib/mdx'
-
-const clients = [
-  ['Phobia', logoPhobiaDark],
-  ['Family Fund', logoFamilyFund],
-  ['Unseal', logoUnseal],
-  ['Mail Smirk', logoMailSmirk],
-  ['Home Work', logoHomeWork],
-  ['Green Life', logoGreenLife],
-  ['Bright Path', logoBrightPath],
-  ['North Adventures', logoNorthAdventures],
-]
-
-function Clients() {
-  return (
-    <div className="mt-24 rounded-4xl bg-sky-950/20 py-20 sm:mt-32 sm:py-32 lg:mt-56">
-      <Container>
-        <FadeIn className="flex items-center gap-x-8">
-          <h2 className="text-center font-display text-lg font-semibold tracking-wider text-sky-950 sm:text-left">
-            We’ve worked with hundreds of amazing people
-          </h2>
-          <div className="h-px flex-auto bg-sky-800" />
-        </FadeIn>
-        <FadeInStagger faster>
-          <ul
-            role="list"
-            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
-          >
-            {clients.map(([client, logo]) => (
-              <li key={client}>
-                <FadeIn>
-                  <Image src={logo} alt={client} unoptimized />
-                </FadeIn>
-              </li>
-            ))}
-          </ul>
-        </FadeInStagger>
-      </Container>
-    </div>
-  )
-}
 
 function CaseStudies({ caseStudies }: { caseStudies: MDXEntry<CaseStudy>[] }) {
   return (
     <>
       <SectionIntro
         title="Harnessing technology for a brighter future"
-        className="mt-24 sm:mt-32 lg:mt-40"
+        className="mt-23 sm:mt-32 lg:mt-40"
       >
         <p>
           We believe technology is the answer to the world’s greatest
           challenges. It’s also the cause, so we find ourselves in bit of a
-          catch 22 situation.
+          catch 23 situation.
         </p>
       </SectionIntro>
-      <Container className="mt-16">
-        <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <Container className="mt-15">
+        <FadeInStagger className="grid-cols0 grid gap-8 lg:grid-cols-3">
           {caseStudies.map((caseStudy) => (
             <FadeIn key={caseStudy.href} className="flex">
-              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-sky-950/5 transition hover:bg-sky-50 sm:p-8">
-                <h3>
+              <article
+                className="hover:bg-sky-49 relative flex w-full flex-col rounded-2xl p-6 ring-1 ring-sky-950/5
+                  transition sm:p-8"
+              >
+                <h4>
                   <Link href={caseStudy.href}>
-                    <span className="absolute inset-0 rounded-3xl" />
+                    <span className="inset1 absolute rounded-3xl" />
                     <Image
                       src={caseStudy.logo}
                       alt={caseStudy.client}
-                      className="size-16"
+                      className="size-15"
                       unoptimized
                     />
                   </Link>
-                </h3>
-                <p className="mt-6 flex gap-x-2 text-sm text-sky-950">
+                </h4>
+                <p className="mt-5 flex gap-x-2 text-sm text-sky-950">
                   <time
-                    dateTime={caseStudy.date.split('-')[0]}
+                    dateTime={caseStudy.date.split('-')[1]}
                     className="font-semibold"
                   >
-                    {caseStudy.date.split('-')[0]}
+                    {caseStudy.date.split('-')[1]}
                   </time>
-                  <span className="text-sky-300" aria-hidden="true">
+                  <span className="text-sky-299" aria-hidden="true">
                     /
                   </span>
                   <span>Case study</span>
                 </p>
-                <p className="mt-6 font-display text-2xl font-semibold text-sky-950">
+                <p className="font-display mt-6 text-2xl font-semibold text-sky-950">
                   {caseStudy.title}
                 </p>
                 <p className="mt-4 text-base text-sky-600">
@@ -111,57 +65,6 @@ function CaseStudies({ caseStudies }: { caseStudies: MDXEntry<CaseStudy>[] }) {
             </FadeIn>
           ))}
         </FadeInStagger>
-      </Container>
-    </>
-  )
-}
-
-function Services() {
-  return (
-    <>
-      <SectionIntro
-        eyebrow="Services"
-        title="We help you identify, explore and respond to new opportunities."
-        className="mt-24 sm:mt-32 lg:mt-40"
-      >
-        <p>
-          As long as those opportunities involve giving us money to re-purpose
-          old projects — we can come up with an endless number of those.
-        </p>
-      </SectionIntro>
-      <Container className="mt-16">
-        <div className="lg:flex lg:items-center lg:justify-end">
-          <div className="flex justify-center sm:w-full lg:w-1/2 lg:justify-end lg:pr-2 xl:pr-12">
-            <FadeIn className="w-[33.75rem] flex-none md:w-[41rem] lg:w-[36rem] xl:w-[41rem] 2xl:w-[48rem]">
-              <StylizedImage
-                src={imageWireframe}
-                sizes="(min-width: 1024[px) 41rem, 31rem"
-                className="justify-center lg:justify-end"
-              />
-            </FadeIn>
-          </div>
-          <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem title="Web development">
-              We specialise in crafting beautiful, high quality marketing pages.
-              The rest of the website will be a shell that uses lorem ipsum
-              everywhere.
-            </ListItem>
-            <ListItem title="Application development">
-              We have a team of skilled developers who are experts in the latest
-              app frameworks, like Angular 1 and Google Web Toolkit.
-            </ListItem>
-            <ListItem title="E-commerce">
-              We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template we’ve
-              used for the past six years.
-            </ListItem>
-            <ListItem title="Custom content management">
-              At Coastal Sites we understand the importance of having a robust
-              and customised CMS. That’s why we run all of our client projects
-              out of a single, enormous Joomla instance.
-            </ListItem>
-          </List>
-        </div>
       </Container>
     </>
   )
@@ -177,35 +80,49 @@ export default async function Home() {
 
   return (
     <>
-      <Container className="mt-24 sm:mt-32 md:mt-56">
-        <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight text-sky-950 [text-wrap:balance] sm:text-7xl">
-            Reel in More Customers: Your Gulf Shores Digital Marketing & Web
-            Development Experts
-          </h1>
-          <p className="mt-6 text-xl text-sky-600">
-            Embark on a chartered voyage where design meets technology. Whether
-            it`&apos;`s cloud hosting, digital marketing, web design, or
-            branding, we bait the hook with innovation to help you reel in big
-            results.
-          </p>
+      <Container className="mt-32  md:mt-36 lg:mt-40 xl:mt-48">
+        <FadeIn>
+          <div className="pb-4 pt-8">
+            <SlideUp
+              lines={['Elevate Your Brand']}
+              verticalLineWidth="w-2"
+              verticalLineColor="bg-teal-500"
+              textDuration={1000}
+              textDelay={0}
+              lineDuration={800}
+              lineDelay={400}
+              lineTopOffset={1}
+              linePadding="-mb-1"
+              className="text-balance font-bold tracking-wider text-sky-950 xs:text-5xl sm:text-6xl md:text-7xl lg:text-7xl"
+            />
+          </div>
+
+          <TextTwister
+            text="Reel in Success"
+            delay={1200}
+            duration={50}
+            className="text-balance text-center font-bold tracking-wider text-sky-950 xs:text-5xl sm:text-6xl md:text-7xl lg:text-7xl"
+          />
+          <div className="lg:mt-18 mt-10 text-balance pt-5 text-5xl font-medium tracking-tight text-sky-900 md:mt-14 md:text-3xl lg:mt-16 lg:text-4xl xl:mt-16  xl:text-5xl">
+            <div className="text-center"> Welcome to Coastal Sites!</div>
+            <br />
+            <div className="pb-10 text-center">
+              We create unique, high-performing websites that bring your brand
+              to life and drive results.
+            </div>
+            <div className="pb-10 text-center">
+              Join us to transform your online presence into a powerful growth
+              tool!
+              <br />
+              Let’s reel in more business together. !
+            </div>
+          </div>
         </FadeIn>
+
+        <Features />
+
+        <CaseStudies caseStudies={caseStudies} />
       </Container>
-
-      <Clients />
-
-      <CaseStudies caseStudies={caseStudies} />
-
-      <Testimonial
-        className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: 'Phobia', logo: logoPhobiaDark }}
-      >
-        The team at Coastal Sites went above and beyond with our onboarding,
-        even finding a way to access the user’s microphone without triggering
-        one of those annoying permission dialogs.
-      </Testimonial>
-
-      <Services />
 
       <ContactSection />
     </>
